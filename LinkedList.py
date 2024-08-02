@@ -10,7 +10,7 @@ class LinkedList: #linkedlist constructor
         self.head = new_node
         self.tail = new_node
         self.length = 1
-        
+
     def print_list(self):
         temp = self.head
         while temp is not None:
@@ -18,12 +18,22 @@ class LinkedList: #linkedlist constructor
             temp = temp.next
 
     def append(self, value):
-        pass
+        new_node = Node(value)
+        if self.head is None: 
+            self.head = new_node
+            self.tail = new_node
+        else:
+            self.tail.next = new_node
+            self.tail = new_node
+        self.length += 1
+        return True
+
     def prepend(self, value):
         pass
     def insert(self, index, value):
         pass
 
 my_linked_list = LinkedList(4)
+my_linked_list.append(2)
 
-print(my_linked_list.head.value)
+my_linked_list.print_list()
