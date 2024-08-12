@@ -5,7 +5,7 @@ class Node:
 
 class LinkedList: #linkedlist constructor
     def __init__(self, value):
-        #create the node
+        #create the node with head and tail
         new_node = Node(value)
         self.head = new_node
         self.tail = new_node
@@ -50,18 +50,58 @@ class LinkedList: #linkedlist constructor
         return temp.value
 
     def prepend(self, value):
-        pass
+        new_node = Node(value)
+        if self.length == 0:
+            self.head = new_node
+            self.tail = new_node
+        else : 
+            new_node.next = self.head
+            self.head = new_node
+        self.length += 1
+        return True
+    
+    def pop_first(self):
+        if self.length == 0:
+            return None
+        temp = self.head
+        self.head = self.head.next
+        temp.next = None
+        self.length -= 1
+        if self.length == 0:
+            self.tail = None
+        return temp.value
+    
+    def get(self, index):
+        if index < 0 or index >= self.length:
+            return None 
+        temp = self.head
+        for _ in range(index):
+            temp =temp.next
+        return temp.value
+
     def insert(self, index, value):
         pass
 
 my_linked_list = LinkedList(4)
 my_linked_list.append(2)
-
-# my_linked_list.print_list()
-
-print(my_linked_list.pop())
-print(my_linked_list.pop())
-print(my_linked_list.pop())
+my_linked_list.append(1)
+my_linked_list.prepend(6)
 
 print("List items are: ")
 my_linked_list.print_list()
+
+# print("Popped items are: ")
+# print(my_linked_list.pop())
+# print(my_linked_list.pop())
+# print(my_linked_list.pop())
+# print(my_linked_list.pop())
+# print(my_linked_list.pop())
+
+print("First Popped items are: ")
+print(my_linked_list.pop_first())
+
+print("New list items are: ")
+my_linked_list.print_list()
+
+print("\nGet method: ")
+print(my_linked_list.get(1))
