@@ -118,8 +118,8 @@ print(my_linked_list.get(1))
 
 #     curr_node.next = None
 
-# def remove_first_node(self):
-#     if(self.head == None):
-#         return
+def remove_first_node(self):
+    if(self.head == None):
+        return
     
-#     self.head = self.head.next
+    self.head = self.head.next
