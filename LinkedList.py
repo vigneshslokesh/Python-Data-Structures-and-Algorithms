@@ -103,7 +103,7 @@ print(my_linked_list.pop_first())
 print("New list items are: ")
 my_linked_list.print_list()
 
-print("\nGet method: ")
-print(my_linked_list.get(1))
+# print("\nGet method: ")
+# print(my_linked_list.get(1))
 
 
